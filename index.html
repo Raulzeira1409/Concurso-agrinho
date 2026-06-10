@@ -4,163 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrinho 2026 - Conectando Campo e Cidade</title>
-    <style>
-        /* Estilos Gerais */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth; /* Ajuda na rolagem suave do CSS */
-        }
-
-        body {
-            background-color: #f4f7f4;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* Menu de Navegação */
-        header {
-            background-color: #1b4d3e;
-            color: white;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header h1 {
-            font-size: 24px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #a3e2a4;
-        }
-
-        /* Banner */
-        .hero {
-            background: linear-gradient(rgba(27, 77, 62, 0.8), rgba(27, 77, 62, 0.9)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200') no-repeat center center/cover;
-            color: white;
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            background-color: #ff9f1c;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-            transition: background 0.3s;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn:hover {
-            background-color: #e08610;
-        }
-
-        /* Seções Gerais */
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 60px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            color: #1b4d3e;
-            font-size: 32px;
-            margin-bottom: 40px;
-        }
-
-        /* Cards de Categorias */
-        .grid-categorias {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: center;
-            border-top: 5px solid #2e7d32;
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            color: #2e7d32;
-            margin-bottom: 10px;
-        }
-
-        /* Cronograma */
-        .cronograma-lista {
-            list-style: none;
-            max-width: 600px;
-            margin: auto;
-        }
-
-        .cronograma-lista li {
-            background: white;
-            margin-bottom: 15px;
-            padding: 15px 20px;
-            border-left: 5px solid #ff9f1c;
-            border-radius: 0 8px 8px 0;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .cronograma-lista .data {
-            font-weight: bold;
-            color: #1b4d3e;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: #113327;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 14px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -181,12 +25,12 @@
 
     <section id="sobre" class="container">
         <h2 class="section-title">O que é o Programa Agrinho?</h2>
-        <p style="text-align: center; max-width: 800px; margin: auto; font-size: 18px; color: #555;">
+        <p class="sobre-texto">
             O Agrinho é o maior programa de responsabilidade social rural. Em 2026, ele leva para as salas de aula temas essenciais como sustentabilidade, robótica e inovação, unindo a energia do campo com a tecnologia da cidade.
         </p>
     </section>
 
-    <section id="categorias" style="background-color: #eef3ee;">
+    <section id="categorias" class="bg-light">
         <div class="container">
             <h2 class="section-title">Categorias do Concurso</h2>
             <div class="grid-categorias">
@@ -232,43 +76,6 @@
         <p>&copy; 2026 Projeto Agrinho. Criado para incentivar a sustentabilidade.</p>
     </footer>
 
-    <script>
-        // 1. Script para o botão principal da tela (Hero)
-        const botaoSaibaMais = document.getElementById('btnAlerta');
-        
-        botaoSaibaMais.addEventListener('click', function() {
-            alert('As regras e editais oficiais para o Agrinho 2026 estarão disponíveis na sua escola em breve. Prepare-se!');
-        });
-
-        // 2. Script para os Cards (Ao clicar, mostra qual categoria foi selecionada)
-        const cards = document.querySelectorAll('.card');
-        
-        cards.forEach(card => {
-            // Muda o cursor do mouse para a "mãozinha" para mostrar que é clicável
-            card.style.cursor = 'pointer'; 
-            
-            card.addEventListener('click', function() {
-                // Pega o título (h3) de dentro do card que foi clicado
-                const tituloCategoria = this.querySelector('h3').innerText;
-                alert('Você selecionou a modalidade: ' + tituloCategoria);
-            });
-        });
-
-        // 3. Rolagem suave via JavaScript para os links do menu
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault(); // Evita que a página pule grosseiramente
-                
-                const destinoID = this.getAttribute('href'); // Pega o id destino (ex: #sobre)
-                const destinoSecao = document.querySelector(destinoID);
-                
-                // Faz a tela deslizar até a seção
-                destinoSecao.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
